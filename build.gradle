@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(
+            "org.junit.jupiter:junit-jupiter:$jupiterVersion",
+            "org.assertj:assertj-core:$assertjVersion",
+            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "com.codeborne:selenide:$selenideVersion",
+            "org.aeonbits.owner:owner:$ownerVersion",
+            "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
+            "org.awaitility:awaitility:$awaitilityVersion",
+            "com.opencsv:opencsv:${opencsvVersion}",
+            "com.codeborne:xls-test:$xlsTestVersion",
+            "org.apache.poi:poi:$apachePOIVersion",
+            "org.apache.poi:poi-ooxml:$apachePOIVersion",
+            "org.jxls:jxls-jexcel:$jxlsjexcelVersion",
+            "org.dhatim:fastexcel-reader:$fastexcelVersion",
+            "org.dhatim:fastexcel:$fastexcelVersion"
+    )
+
+    testRuntimeOnly "org.slf4j:slf4j-simple:${slf4jVersion}"
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}

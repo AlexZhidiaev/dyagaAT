@@ -24,7 +24,7 @@ public class SearchSteps {
 
     @Step("Кликаем по элементу в списке найденных товаров")
     public void clickFoundItem(int foundProductIndex) {
-        searchPage.foundItems.get(foundProductIndex).$x(".//div[@class='searchInfoImage']").click();
+        searchPage.foundItems.get(foundProductIndex).$x(".//td[@class='caseInfo']").click();
     }
 
     @Step("Получаем информацию обо всех продуктах в поиске")

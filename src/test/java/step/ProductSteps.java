@@ -26,7 +26,10 @@ public class ProductSteps {
         if(!productPage.productList.isEmpty()){
             if(!productPage.productList.get(0).$x(".//div[@class='distrInfoRoute']/span[@class='fr-text-nowrap']").getText().equals(WAREHOUSE.getValue())){
                 productModel.setWarehouse(productPage.productList.get(0).$x(".//div[@class='distrInfoRoute']/span[@class='fr-text-nowrap']").getText());
-                productModel.setPrice(productPage.productList.get(0).$x(".//div[contains(@class,'distrInfoPrice')]").getText());
+                productModel.setPrice(
+                        productPage.productList.get(0).$x(".//div[contains(@class,'distrInfoPrice')]").getOwnText()
+                );
+                ///TODO:
             }
             else{
                 productModel.setWarehouse(productPage.productList.get(1).$x(".//div[@class='distrInfoRoute']/span[@class='fr-text-nowrap']").getText());

@@ -17,4 +17,7 @@ public class SearchPage {
 
     public final SelenideElement searchAlert = $x(".//div[@class='fr-alert fr-alert-warning']");
 
+    public final List<SelenideElement> singleResultItems = $$x("//table[@class='globalResult searchResultsSecondStep']//tr[@data-current-brand-number]");
+
+    public final SelenideElement singleResultTable = $x(".//table[@class='globalResult searchResultsSecondStep']");
 }

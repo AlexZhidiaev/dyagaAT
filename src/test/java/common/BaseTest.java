@@ -1,5 +1,6 @@
 package common;
 
+import com.codeborne.selenide.Selenide;
 import config.WebDriverProviderSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,9 +22,10 @@ public class BaseTest extends Provider {
         System.out.println("------START------");
         new WebDriverProviderSelenide().get();
         System.out.println("------LOGIN------");
-/*        $x(".//input[@id='login']").sendKeys(LOGIN_UI.getValue());
+        $x(".//input[@id='login']").sendKeys(LOGIN_UI.getValue());
         $x(".//input[@id='pass']").sendKeys(PASSWORD_UI.getValue());
-        $x(".//input[@id='go']").click();*/
+        $x(".//input[@id='go']").click();
+        Selenide.sleep(5000);
     }
 
     @AfterAll

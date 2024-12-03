@@ -22,6 +22,7 @@ public class WebDriverProviderSelenide {
         Configuration.browserSize = config.getBrowserSize();
         Configuration.timeout = config.getTimeout();
         Configuration.baseUrl = config.getBaseUIUrl();
+        //Configuration.headless=true;
         open(config.getBaseUIUrl());
     }
 

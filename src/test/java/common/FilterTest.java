@@ -18,7 +18,7 @@ public class FilterTest extends BaseTest {
 
     private final SearchSteps searchSteps = new SearchSteps();
     Workbook workbook;
-    String filePath = "src/test/resources/book1.xlsx";
+    String filePath = "src/test/resources/book2.xlsx";
     String outputFilepath = "src/test/resources/output/";
     Sheet outputSheet;
 
@@ -30,7 +30,8 @@ public class FilterTest extends BaseTest {
 
     @AfterEach
     void afterCondition() {
-
+        System.out.println("AFTER CONDITION");
+        excelParser.saveToFile(workbook, outputFilepath + "output2.xlsx");
     }
 
     @Test
@@ -58,6 +59,5 @@ public class FilterTest extends BaseTest {
             }
             excelParser.writeProductsToSheet(outputSheet, allProducts);
         }
-        excelParser.saveToFile(workbook, outputFilepath + "output.xlsx");
     }
 }

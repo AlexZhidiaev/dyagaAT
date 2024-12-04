@@ -42,9 +42,11 @@ public class SearchSteps {
             if (searchPage.singleResultItems.size() > 1) {
                 if (searchPage.singleResultItems.get(0).$x(".//td[contains(@class,'resultWarehouse')]").getText().equals(WAREHOUSE.getValue())) {
                     item = searchPage.singleResultItems.get(1);
-
                 } else {
                     item = searchPage.singleResultItems.get(0);
+                    if(item.$x(".//td[@class='resultAvailability noavail']").isDisplayed()){
+                        return List.of(ProductModel.builder().article(articleNum).price("NOT AVAILABLE").build());
+                    }
                 }
                 return List.of(ProductModel.builder().article(articleNum)
                         .price(item.$x(".//td[@class='resultPrice ']").getText())
